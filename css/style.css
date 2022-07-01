@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+.header-bar {
+    height: 100px;
+    background-color: aqua;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.container {
+    max-width: 1000px;
+    height: 1000px;
+    margin: 100px auto;
+}
+
+#grid {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.cell {
+    height: calc(100% / 10);
+    width: calc(100% / 10);
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cell.clicked {
+    background-color: lightblue;
+}
