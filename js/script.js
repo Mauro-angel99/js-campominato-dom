@@ -8,12 +8,38 @@ function createCell() {
     return cell
 }
 
+// funzione per creare un numero casuale
 
 function randomNumber(max) {
-    let random = Math.floor(Math.random() * (max + 1 - 1) + 1)
-    console.log(random)
-    return
+    return Math.floor(Math.random() * (max + 1 - 1) + 1)
+
 }
+
+// funzione per creare un array contente 16 numeri casuali
+
+
+function bombs(numberCell) {
+
+    const bombs = []
+
+    const numberBombs = 16
+
+    while (bombs.length < numberBombs) {
+        let random
+
+        do {
+            random = randomNumber(numberCell)
+        } while (bombs.includes(random))
+
+        bombs.push(random)
+
+    }
+
+
+    return bombs
+
+}
+
 
 
 
@@ -34,22 +60,35 @@ button.addEventListener(`click`, function () {
 
     let point = 0
 
+    const numberBombs = bombs(numberCell)
+    console.log(numberBombs)
+
+
     for (let i = 1; i <= numberCell; i++) {
         const cell = createCell()
 
+
         cell.addEventListener(`click`, function () {
+
 
             if (cell.classList.contains(`clicked`)) {
                 return
+            } else if (numberBombs.includes(i)) {
+                cell.classList.add(`bomb`)
+                console.log(`hai perso`)
+                console.log(`punti `, point)
+            } else {
+                cell.classList.add(`clicked`)
+
+                console.log(i)
+
+
+                point++
+
             }
 
-            cell.classList.add(`clicked`)
 
-            console.log(i)
 
-            point++
-
-            console.log(`punti `, point)
         })
 
 
@@ -59,12 +98,8 @@ button.addEventListener(`click`, function () {
     }
 
 
-    // creo 16 numeri casuali da 1 a il numero massimo di caselle
 
 
-    for (let i = 0; i < 16; i++) {
-        randomNumber(numberCell)
-    }
 
 
 })

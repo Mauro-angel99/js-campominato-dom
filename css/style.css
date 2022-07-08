@@ -39,3 +39,7 @@
 .cell.clicked {
     background-color: lightblue;
 }
+
+.cell.bomb {
+    background-color: red;
+}
