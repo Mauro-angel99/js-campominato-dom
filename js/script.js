@@ -20,9 +20,9 @@ function randomNumber(max) {
 
 function bombs(numberCell) {
 
-    const bombs = []
-
     const numberBombs = 16
+
+    const bombs = []
 
     while (bombs.length < numberBombs) {
         let random
@@ -60,6 +60,8 @@ button.addEventListener(`click`, function () {
 
     let point = 0
 
+
+
     const numberBombs = bombs(numberCell)
     console.log(numberBombs)
 
@@ -77,19 +79,24 @@ button.addEventListener(`click`, function () {
                 cell.classList.add(`bomb`)
                 console.log(`hai perso`)
                 console.log(`punti `, point)
+                alert(`hai perso totalizzando: ` + point + ` punti`)
             } else {
                 cell.classList.add(`clicked`)
 
-                console.log(i)
-
-
                 point++
+
+                if (point === numberCell - numberBombs.length) {
+                    alert(`hai raggiunto il massimo dei punti!`)
+                }
+
 
             }
 
 
 
         })
+
+
 
 
         cell.innerText = [i]
